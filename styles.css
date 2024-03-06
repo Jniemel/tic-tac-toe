@@ -227,6 +227,7 @@ button:hover {
     height: 7%;    
     background-color: #0A4E2F;     
     display: flex;
+    flex-direction: column;
     justify-content: center;
     align-items: center;
     overflow: hidden;    
@@ -235,4 +236,9 @@ button:hover {
 #footer div p {
     font-size: 0.5em;
     padding: 3px;    
+}
+
+#footer a {
+    color: hotpink;
+    text-decoration: none;
 }
