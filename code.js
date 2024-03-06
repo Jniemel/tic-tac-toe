@@ -6,8 +6,7 @@ const gameBoard = (function () {
         for (i = 0; i < 3; i++) {
             rows.push(Array(3).fill('-'));
         }               
-    }
-    const getLenght = () => lenght;
+    }    
     const getState = () => rows;    
     const setMark = (row, column, mark) => rows[row][column] = mark;
     // for displaying in IDE console
@@ -21,7 +20,7 @@ const gameBoard = (function () {
         str = '';
         }         
     }    
-    return { getLenght, set, getState, setMark, displayConsole };
+    return { set, getState, setMark, displayConsole };
 })();
 // player factory
 function createPlayer(name, mark) {
