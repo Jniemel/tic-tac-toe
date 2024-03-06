@@ -1,0 +1,238 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    font-family: "Lucida Console", Monaco, monospace;
+    font-size: 18px;
+    letter-spacing: 0px;
+    word-spacing: 2px;
+    color: WHITE;
+    font-weight: 400;
+    text-decoration: none;
+    font-style: normal;
+    font-variant: normal;
+    text-transform: none;
+}
+
+p {
+    margin: 0;
+	padding: 0;
+	border: 0;
+	font-size: 100%;
+	font: inherit;
+	vertical-align: baseline;
+}
+
+body {
+    margin: 0;   
+    height: 100vh;
+    width: 100vw;
+    background: linear-gradient(to bottom, #30A465 0%, #0A4E2F 100%);
+}
+
+#main-container {      
+    max-width: 100%;
+    height: 100%;    
+    display: flex;
+    flex-direction: column;
+}
+
+#header {    
+    height: 13%;             
+    background-color: #30a464;    
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    font-size: 1.5em;
+    font-weight: 900;
+    color: #faebd7;      
+    text-wrap: nowrap;
+}
+
+.svg-container {    
+    height: 100%;
+    display: flex;    
+}
+
+#header-svg {
+    width: 100%;   
+}
+
+#content {
+    min-height: max-content;        
+    height: 80%;
+    display: flex;
+    overflow-x: auto;    
+}
+
+.sidebar {
+    flex-grow: 1;
+    height: 100%;
+    max-width: 15%;
+    min-width: min-content;   
+    border-width: 0.25em;
+    border-style: solid;
+    border-image: 
+      linear-gradient(
+        to bottom, 
+        #30A465, 
+        #0A4E2F
+      ) 1 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;    
+    padding: 1.5%;
+    padding-top: 3%;
+    overflow: auto;
+}
+
+.hide {
+    visibility: hidden;
+    overflow: hidden;
+}
+
+.sidebar form {
+    display: flex;
+    flex-direction: column;
+    gap: 1.3em;    
+}
+
+label {
+    text-wrap: nowrap;
+}
+
+input[type="text"],
+input[type="text"]:autofill {
+    background-color: antiquewhite;
+    color: black;
+    padding: 4px;
+    border: 2px inset #30a464;
+    margin-top: 3px;
+    width: 100%;
+    outline: none;   
+}
+
+input[type="text"]:focus {       
+    border-color: #f08080;    
+}
+
+input[type="text"]:valid {    
+    border-color: #00ff00;
+    background-color: azure;   
+}
+
+form button {
+    padding: 0.6em;
+    width: max-content;
+    margin-top: 0.8em;
+    font-style: italic;
+    color: black;
+    font-weight: 700;
+    background-color: azure;
+    border: 2px outset #0A4E2F;
+    border-radius: 8px;
+    align-self: center;
+    text-wrap: nowrap;
+}
+
+button:hover {
+    border-color: lime;
+}
+
+#game-container {       
+    min-width: min-content;    
+    flex-grow: 1;      
+    display: flex;
+    justify-content: center;
+    overflow: auto;
+    padding: 3%;        
+}
+
+.game-grid-empty,
+.game-grid-filled {    
+    aspect-ratio: 1 / 1;         
+    box-shadow: 0px 8px 10px 0px #000000;   
+}
+
+.game-grid-empty {
+    background-color: #0A4E2F;
+    text-align: center;
+    padding-top: 6%;
+    font-size: 1.5em;
+    overflow: auto;    
+}
+
+.game-grid-filled {
+    background-color: antiquewhite;
+    background-image: url(images/grid.png);
+    background-size: cover;
+    display: grid;
+    grid-template-rows: repeat(3, minmax(0, 1fr));
+    grid-template-columns: repeat(3, minmax(0, 1fr));           
+}
+
+.cell-empty,
+.cell-marked,
+.winning-track {    
+    display: flex;
+    height: 100%;
+    width: 100%;    
+}
+
+.winning-track {
+    background-image: url(images/winning.png);
+    background-size: cover;
+}
+
+.cell-marked img {
+    
+}
+
+.cell-empty:hover {
+    background-image: url(images/pencil-centered.png);
+    background-size: cover;
+}
+
+#scores {
+    display: flex;
+    flex-direction: column;
+    gap: 1em;
+}
+
+.score-container > p {
+    text-wrap: nowrap;
+    font-size: 100%;
+}
+
+.scores-button {
+    padding: 0.6em;
+    width: max-content;    
+    font-style: italic;
+    color: black;
+    font-weight: 700;
+    background-color: azure;
+    border: 2px outset #0A4E2F;
+    border-radius: 8px;
+    align-self: center;
+    text-wrap: nowrap;
+    width: 60%;    
+    align-self: center;
+}
+
+#footer {
+    height: 7%;    
+    background-color: #0A4E2F;     
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    overflow: hidden;    
+}
+
+#footer div p {
+    font-size: 0.5em;
+    padding: 3px;    
+}

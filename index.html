@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <link rel="stylesheet" href="styles.css">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div id="main-container">        
+        <div id="header">
+            <div class="svg-container"><img src="./images/TIC-TAC-TOE.svg" id="header-svg" alt="TIC-TAC-TOE"></div>
+        </div>        
+        <div id="content">
+            <div class="sidebar">                
+                <form id="players-form">
+                    <div class="input">
+                        <label for="player1-name">PLAYER 1:</label>
+                        <input type="text" id="player1-name" name="player1-name" placeholder="" required>
+                    </div>
+                    <div class="input">
+                        <label for="player2-name">PLAYER 2:</label>
+                        <input type="text" id="player2-name" name="player2-name" placeholder="" required>
+                    </div>
+                    <button type="submit" id="start-button">Start game</button>
+                </form>                 
+            </div>
+            <div id="game-container">
+                <div id="game-grid" class="game-grid-empty">Waiting for players...</div>
+            </div>
+            <div class="sidebar">
+                <div id="scores" class="hide">
+                    <div class="score-container">
+                        <p id="p1-score-text">score1</p>
+                    </div>
+                    <div class="score-container">
+                        <p id="p2-score-text">score2</p>
+                    </div>
+                </div>
+            </div>
+        </div>        
+        <div id="footer">
+            <div><p>@Jniemel</p></div>
+        </div>
+    </div>
+    <script src="code.js"></script> 
+</body>
+</html>
