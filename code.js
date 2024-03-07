@@ -132,6 +132,11 @@ function endTurn(turn) {
             case 'p2':
                 p2.giveScore();                
         }
+        const cell = gameGrid.querySelectorAll('.cell-empty');
+        cell.forEach((listener) => {
+            listener.removeEventListener('click', cellClick);
+            listener.classList = 'left-empty';
+        });
         updateScores();        
         ShowWinTrack(winCheckArr);
         endRound();        
