@@ -59,7 +59,7 @@ const game = (function () {
     const getTurn = () => turn;    
     function winCheck(boardState) {
         // create array for multiple return values
-        // arrays first value: 0 = no winning lines, 1 = winning line found
+        // arrays first value: 0 = no winning lines, 1 = winning line found, 2 = draw
         // arrays other values: coordinates for the winning line
         let arr = [0];      
         // check horizontal tracks               
@@ -83,7 +83,23 @@ const game = (function () {
         } else if (boardState[0][2] === boardState[1][1] && boardState[1][1] === boardState[2][0] && boardState[1][1] != '-' ) {
             arr[0] = 1;
             arr.push([[0], [2]], [[1], [1]], [[2], [0]]);
+        }        
+        // check draw
+        let draw = false;
+        if (!arr[0]) {
+            draw = true;
+            for (i = 0; i < boardState.length; i++) {                
+                for (let j = 0; j < boardState[i].length; j++) {                    
+                    if (boardState[i][j] === '-') {                    
+                        draw = false;                        
+                    }                    
+                }
+            }
         }
+        if (draw) {
+            arr[0] = 2;
+        }               
+
         return arr;      
     }
     return { draw, changeTurn, getTurn, winCheck }
@@ -108,7 +124,7 @@ function startGame(e) {
 // ending turn, if winCheckArr[0] = 1, start new round
 function endTurn(turn) {
     const winCheckArr = game.winCheck(gameBoard.getState());
-    if (winCheckArr[0]) {
+    if (winCheckArr[0] === 1) {
         switch (turn) {
             case 'p1':
                 p1.giveScore();                
@@ -119,6 +135,12 @@ function endTurn(turn) {
         updateScores();        
         ShowWinTrack(winCheckArr);
         endRound();        
+    } else if (winCheckArr[0] === 2) {
+        let delay = 500;
+        setTimeout(function() {
+            alert('Draw!');
+            endRound()
+        }, delay);
     } else {
         game.changeTurn();
     }
